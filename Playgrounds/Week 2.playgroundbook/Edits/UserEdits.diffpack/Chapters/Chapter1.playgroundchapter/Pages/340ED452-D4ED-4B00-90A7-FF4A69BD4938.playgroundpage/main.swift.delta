@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+class MyClass {
+    init() {
+        NotificationCenter.default.addObserver(name: UIApplication.didEnterBackgroundNotification, object: nil, queue:nil , using: @selector(myFunc))
+    }
+    
+    func myFunc() {
+        //save my sensitive data
+    }
+    
+    deinit {
+        // gerek kalmadi
+        print("My class deinited")
+    }
+}
+
+class MyClass2 {
+    //post
+}
+
+
+class AppleClass {
+    var value: Int { 
+        didSet {
+            
+        }
+    }
+    ..
+    ..
+    //User arkapla atti
+    let userInfoDict = ["time" : Date(), "deviceType": "Simulator"]
+    NotificationCenter.default.post(name: UIApplication.didEnterBackgroundNotification, object: optionalObject, userInfo: userInfoDict)
+}
+
+//delegate (1)to(1) iliski
+//notification (1)to(n) iliski
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 776}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

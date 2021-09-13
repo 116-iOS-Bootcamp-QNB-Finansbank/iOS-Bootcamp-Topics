@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+
+// { (parametre) -&gt; return type in
+// statement }
+
+// numbers.filter { (number) -&gt; Bool in
+// return number &gt; 0 }
+// $0 = shorthand operator
+/*
+ func myFunc() {
+ print("My func")
+ }
+ // myFunc type: () -&gt; Void
+ 
+ func myFunc2(x: Int) -&gt; Int { return 0 }
+ // myFunc type: (Int) -&gt; Int
+ 
+ //fog(x) f(g(x))
+ 
+ func myFunction(otherFunction: (Bool) -&gt; Void) {
+ otherFunction(true)
+ }
+ 
+ // myFunction type: ((Bool) -&gt; Void) -&gt; Void)
+ */
+/*
+class MyClass {
+    var classString = ""
+    
+    func createClosure(with string: String) -&gt; () -&gt; String {
+        var funcString = ""
+        
+        func addSomeChar() -&gt; String {
+            classString += string
+            funcString += string
+            return "classString: \(classString), funcString\(funcString)"
+        }
+        return addSomeChar
+    }
+}
+
+var myClass: MyClass? = MyClass()
+
+var closure1: (() -&gt; String)?
+var closure2: (() -&gt; String)?
+
+if let myClass = myClass {
+    closure1 = myClass.createClosure(with: "X")
+    closure2 = myClass.createClosure(with: "Y")
+}
+
+print(closure1!())
+print(closure1!())
+print(closure2!())
+print()
+//myClass = nil
+print(closure1!())
+print(closure2!())
+print()
+
+UIView.animate(withDuration: TimeInterval, animations: ()-&gt; Void, completion: ((Bool) -&gt; Void)?)
+    
+completion: { (isCompleted) -&gt; Bool in
+    
+}
+
+*/
+func myFunction(closure: (Int) -&gt; Void) {
+    print("Some")
+    var a = 0
+    a += 10
+    closure(a)
+    print("Another")
+}
+
+myFunction {a in 
+    print("myFunc", a)
+}
+
+    //escaping non-escaping // defaultu non-escaping
+
+func myFunction(closure: @escaping (Int) -&gt; Void) {
+    print("Some")
+    var a = 0
+    a += 10
+    closure(a)
+    print("Another")
+}
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 1680}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

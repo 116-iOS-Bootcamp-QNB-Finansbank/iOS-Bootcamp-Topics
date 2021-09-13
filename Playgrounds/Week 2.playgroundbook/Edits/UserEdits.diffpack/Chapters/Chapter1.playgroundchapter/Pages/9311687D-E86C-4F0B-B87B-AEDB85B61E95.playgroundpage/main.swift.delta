@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>let numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+
+func firstElement(of array: [Int]) -&gt; Int {
+    return array[0]
+}
+
+let names = ["Ahmet", "Mehmet", "Mustafa"]
+
+func firstElement(of array: [String]) -&gt; String {
+    return array[0]
+}
+
+func firstElement&lt;T&gt;(of array: [T]) -&gt; T {
+    return array[0]
+}
+
+struct Person: Equitable {
+    let name: String
+    let surname: String
+    let tcNo: Int
+    
+    func (rhs: Person, lhs: Person) -&gt; Bool {
+    return (rhs.name == lhs.name) &amp;&amp; (rhs.surname == lhs.surname) //tc no da karsilastirabliriz
+    }
+}
+
+func findIndex&lt;T: Equitable&gt;(of array: [T], valueToFind: T) -&gt; Int? {
+    return array.firstIndex { (item) -&gt; Bool in 
+        return item == valueToFind
+    }
+}
+
+func someFunc&lt;P,K&gt;(of array: [P]) -&gt; K {
+    
+}
+
+let array = [1, true, "Semih"] // boyle bir sey yok
+let array: AnyObject = [1, true, "Semih"] // boyle bir sey yok
+
+func firstValue&lt;T&gt;(array: [T]) -&gt; T {
+    return array[0]
+}
+
+func someFunc&lt;T: Equitable&gt;(of array: [T], value: T) -&gt; T? {
+    return value
+}
+
+let names = ["Ahmet", "Mehmet", "Mustafa"]
+
+let name = firstValue(array: names)
+
+let value = someFunc(of: names, value: "sem")
+
+let mixedArray: AnyObject = [1, true, "Semih"]
+
+let mixedValue = someFunc(of: mixedArray, value: "Semih")
+mixedValue
+
+protocol Flyable { //1. verb // 2. able to (yetenek) 
+    func fly() //AbProtocol
+}
+
+protocol Runnable {
+    func run()
+}
+
+protocol Jumpable {
+    func jump()
+}
+
+func move&lt;P: Flyable, Runnable, Jumpable&gt;(pokemon: P) {
+    /// ...
+}
+
+typealias PokemonCapabilities = Flyable &amp; Runnable &amp; Jumpable
+
+func move&lt;P: PokemonCapabilies&gt;(pokemon: P) {
+    // .... ....
+}
+
+struct SpiderMan: Jumpable, Runnable {
+    func jump() {
+        
+    }
+    
+    func run() {
+        
+    }
+}
+
+func move&lt;T: PokemonCapabilites&gt;(supurhero: T) {
+    
+}// move(superhero: SpiderMan())
+
+
+
+enum Callback&lt;S: Codable, F: Error&gt; {
+    case success(S)
+    case failure(F)
+}
+
+struct Person {
+    let name: String
+}
+
+enum PersonError: Error {
+    case notFound
+}
+
+func findPerson(callback: (Callback&lt;Person, PersonError&gt;) -&gt; Void) {
+    // search in people
+    //completion(Person(name: "Semih"))
+    
+    // could not find in people
+    completion(PersonError.notFound)
+}
+
+findPerson(callback: { result in
+    switch result {
+    case .success(let person):
+        print(person.name)
+        case .failure(let error):
+            //print("unexpected error")
+            print(error) //notFound
+    }
+})
+
+
+
+
+
+protocol Parser {
+    associatedtype Input
+    associatedtype Output
+
+    func parse(input: Input) -&gt; Output
+}
+
+class TextParser: Parser {
+    func parse(input: String) -&gt; String {
+        ///
+    }
+}
+
+class HTMLParser: Parser {
+    func parse(input: [String]) -&gt; [String] {
+        ///
+    }
+}
+
+class JSONParser: Parser {
+    typealias Input = String
+    typealias Output = [String: String]
+    
+    func parse(input: Input) -&gt; Output {
+        
+    }
+    
+    func runParser&lt;P: Parser&gt;(parser: P)
+}
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 2930}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

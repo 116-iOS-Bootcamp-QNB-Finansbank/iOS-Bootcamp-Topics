@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>protocol UITableViewDelegate {
+    func numberRowsInSection()
+}
+protocol UITableViewDataSource {
+    
+    func didSelectRow()
+}
+
+protocol BankProtocol {
+    var account: Double { get }
+}
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    func didSelectRow() {
+        // /\
+        //
+    }
+
+    func numberRowsInSection() {
+        
+    }
+}
+
+protocol Togglable {
+    mutating func toggle()
+    func print()
+}
+enum Switch: Togglable {
+    case on, off
+    
+    mutating func toggle() {
+        switch self {
+        case .off: self = .on
+            case .on: self = .off
+        }
+    }
+    
+    func print() {
+        if self == .on {
+            print("ON")
+        } else {
+            print("OFF")
+        }
+        ---
+        self == .on ? print("ON") : print("OFF")
+            ---
+        print(self == .on ? "ON" : "OFF")
+    }
+}
+
+protocol ProtocolA {
+    func myFuncA()
+}
+
+protocol ProtocolB: ProtocolA {
+    func myFuncB()
+}
+
+class MyClass, ProtocolB {
+    
+}
+struct MyStruct, ProtocolB {
+    
+}
+
+protocol Routable {
+    func present()
+}
+
+protocol ProductDetailRoutable: Routable {
+    // present product detail
+}
+
+protocol BasketRoutable: Routable {
+    // basket detail
+}
+
+extension BasketPresentExtension: BasketRoutab {
+    present() {
+        view.parameter1 = 12
+    }
+}
+
+class MainPageViewController: UIVIewController, BasketPresentExtension {
+    
+}
+
+protocol MyProtocol { //value type
+    
+}
+
+protocol MyProtocol: NSObject { //reference type
+    
+}
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 1508}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>protocol DownloaderDelegate {
+    func download(progress: Double)
+}
+
+class Downloader {
+    weak var delegate: DownloaderDelegate?
+    
+    func start() {
+        delegate?.download(progress: 0.0)
+    }
+    func pause() {
+        
+    }
+    func stop() {
+        delegate?.download(progress: 100.0)
+    }
+    
+    private func downloading() {
+        let progress: Double
+        ...
+            delegate?.download(progress: progress)
+    }
+}
+/*
+class MyViewController: UIViewController {
+    @IBOutlet weak var progressLabel: UILabel!
+    
+    let downloader: Downloader
+    init(downloader: Downloader) {
+        self.downloader = downloader
+        downloader.delegate = self
+    }
+    
+    @IBAction func downloadButtonTapped(_ sender: UIButton) {
+        downloader.start()
+    }
+}
+
+extension MyViewController: DownloaderDelegate {
+    func download(progress: Double) {
+        progressLabel.text = "%\(progress) completed"
+    }
+}*/
+
+import CoreLocation
+class MyViewController: UIViewController {
+    
+    let dataManager: DataManager
+    init(dataManager: DataManager) {
+        self.dataManager = dataManager
+        dataManager.delegate = self
+    }
+    
+    @IBAction func getCoordinateButton(_ sender: UIButton) {
+        dataManager.requestCoordinate()
+    }
+}
+
+extension MyViewController: DownloaderDelegate {
+    func getCurrentCoordinate(coordinate: CLLocationCoordinate2D) {
+        coordinateLabel.text = "%\(coordinate) completed"
+    }
+    
+    func getCurrentCoordinate((CLLocationCoordinate2D) -&gt; Void) {
+        
+    }
+    getCurrentCoordinate { (coordinate) in 
+        
+    }
+}
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 1602}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

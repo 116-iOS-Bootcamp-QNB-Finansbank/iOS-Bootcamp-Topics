@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>class Dog {
+    let name: String
+    var owner: Owner?
+    
+    init(name: String) {
+        self.name = name
+        print("\(name) initted")
+    }
+    
+    deinit {
+        print("Dog deinitted")
+    }
+}
+
+class Owner {
+    let name: String
+    weak var dog: Dog?
+    
+    init(name: String) {
+        self.name = name
+        print("\(name) initted")
+    }
+    
+    deinit {
+        print("Owner deinitted")
+    }
+}
+
+var jackDog: Dog? = Dog(name: "Jack")
+var semihOwner: Owner? = Owner(name: "Semih")
+
+jackDog?.owner = semihOwner
+semihOwner?.dog = jackDog
+
+jackDog = nil
+semihOwner = nil
+
+    //weak strong - defaultu strong
+    //(unowned weak) vs. strong
+
+    //weak zayif bag ve optional
+    //unowned zayif bag ve optional degil
+    //strong guclu bag
+
+protocol DownloaderDelegate {
+    func download(progress: Double)
+}
+
+class Downlaoder {
+    weak var delegate: DownloaderDelegate?
+}
+
+class MyViewController: UIViewController {
+    let downloader: Downloader 
+    init(downlaoder: Downloader) {
+        self.downloader = downloader
+        self.downloader.delegate = self
+    }
+    
+    func saveData() {
+        // save
+    }
+    
+    func prepareData() {
+        // prepare data
+    }
+    
+    func viewDidLoad() {
+        super.viewDidLoad()
+        
+        NotificationCenter.addObserver(name: UIApplication.didEnterBackgroundNotification, object: nil, queue: nil, using: { [weak self] _ in
+            guard let self = self else { return } //self value
+            self.prepareData() //1
+            self.saveData() //2
+        })
+    }
+    
+    func route() {
+        //push another vc
+    }
+}
+
+class CustomView: UIView {
+    var onTap: (() -&gt; Void)?
+}
+
+class MyViewController: UIViewController {
+    let customView: CustomView()
+    
+    var customViewClicked = false
+    
+    func configureCustomView() {
+        var timesTapped = 0
+        
+        customView.onTap { [weak self] _ in
+            timesTapped += 1
+            self?.view.backgroundColor = .red
+            self?.customViewClicked = true
+        }
+    }
+}
+
+//MyViewController -&gt; CustomView -&gt; onTap closure -&gt; MyViewController
+//MyViewController -&gt; CustomView -&gt; onTap closure X MyViewController
+
+@IBOutlet weak var myLabel: UILabel!
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 2217}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

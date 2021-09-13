@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>let myString: String
+var myVariable: String = "2" // NSString(string: myString).intValue
+var myName = "Semih Emre UNLU"
+var paragragraph = """
+asfasdasd asg asf as
+as faf df asd
+asf as sdf asdfasf as
+asdasf asdf a
+"""
+
+var myTuple = (123, "myStr")
+
+Array Sets Dictionares
+[2, 1, 3]
+[1, 2, 3]
+
+let myArray = ... immutable
+let myArray = [1,2,3]
+myArray[5]
+
+var myArray: [Int] = []
+
+var myArray: [Int] = [1,2,3]
+var myArray = Array(repeating:13, count:2) // [13, 13]
+let myArray = array1 + array2
+
+var myArray: [Int] = [1,2,3]
+myArray.append(4) // [1,2,3,4]
+myArray.remove(at: 0)
+myArray.count
+myArray.isEmpty
+myArray.contains(2) // true
+
+var array = [1, 1, 1, 2]
+var mySet: Set&lt;Int&gt; = [1, 2, 3, 1, 1]// [1,2,3]
+var  mySet: Set&lt;Int&gt; = [1, 2, 3]
+mySet.append(1)
+
+var myDict = ["Semih": 1234567,
+              "Ahmet": 2345566]
+var myDict: [Int: AnyObject]
+
+if 3&gt;2 {
+    
+}
+else {
+    
+}
+if 2&gt;3 
+doSomething()
+doSomething2()
+
+func printHello() {
+    print("Hello")
+}
+
+func printMyString(string: String) { //print(string: "myString")
+    print(string)
+}
+
+func printMyString(_ string: String) { //print("myString")
+    print(string)
+}
+func sum(_ first: Int, second: Int) { //sum(12, second: 145)
+    print(first + second)
+}
+
+func printMyString(_ string: String = "Hello") {
+    print(string)
+}
+func sum(first: Int, second: Int) -&gt; Int {
+    return first + second
+}
+
+func swap(first: Int, second: Int) -&gt; (Int, Int) { // swap(first: 1, second: 2) = (2,1)
+    return (second, first)
+}
+
+@discardableResult
+func sum(first: Int, second: Int) -&gt; Int {
+    print(first + second)
+    return first + second
+}
+
+sum(first: 1, second: 2)
+
+func sum(first: sum(first:1, second:2), second: 3)
+
+func printSummarry(first: Int, second: 2) {
+    sum() X
+    func sum(first: Int, second: Int) -&gt; Int {
+        return first + second
+    }
+    
+    print(sum(first: first, second: second))
+}
+func reverse(with myString: String) { //reverse(with: myString) // getCategory(with: id)
+    var myMutableString = myString
+    // reverse 
+}
+func getCategory(with identifier: String)
+
+for int i = 0; i&lt;12: i++ {
+    //i
+}// artik yok
+
+for i in 0..&lt;12 {
+    
+}
+let items = ["Ahmet", "Mehmet", "Ali"]
+
+for item in items {
+    print(item) // "Ahmet", "Mehmet", "Ali"
+}
+for (item, index) in items.enumarated() {
+    print(item) // Ahmet
+    print(index) //0
+}
+let phoneBook = ["Ahmet Yasar", "Mehmet Korkmaz", "Ali Kaplan", "Ahmet Halici"]
+for person in phoneBook where person.hasPrefix("Ahmet") {
+    print(person)
+}
+
+phoneBook.first
+phoneBook.last
+phoneBook[1]
+
+while(statement) {
+    //doSomething
+}
+
+var i = 3
+while(i &gt; 0) {
+    print(i)
+    i -= 1
+}
+
+var i = 3
+repeat {
+    i = 2
+} while(i &gt; 0) {
+    i -= 1
+}
+
+while(i &gt; 0) {
+    i -= 1
+    
+    if x&gt;y {
+        break
+    }
+}
+
+for item in items {
+    if item == "Ahmet" {
+        continue
+    }
+    print(item) // "Mehmet", "Ali"
+}
+
+var x = Deger 
+var x Dolu ya da bos olabilir
+Optional {
+    case none // nil
+    case some // degeri return eder
+}
+var myString: String? = "My String"
+print(myString) // Optinal("My String")
+print(myString!) // "My String"
+
+if myString != nil {
+    print(myString!)
+}
+
+print(myString ?? "myString Is Nil")
+
+var myArray: [Int]? = [1]
+print(myArray?.count) // warning
+
+
+if let value = myValue { // if true
+    print(value)
+}
+
+guard true else { // yo
+    print("hey")
+    return
+}
+print("yo")
+
+guard false else { // hey yo
+    print("hey")
+    return
+}
+print("yo")
+
+var myValue: String?
+guard let value = myValue else {
+    return
+}
+value.parameter
+print(value)
+
+guard myValue != nil else {
+    return
+}
+myValue?.parameter
+
+if let x {
+    if let y {
+        if let z {
+            
+        }
+    }
+}
+
+guard let x else { ... }
+
+guard let y else { ... }
+
+guard let z else { ... }
+
+if abc(some: Int?) -&gt; Bool {
+    guard let x = some else {
+        return false
+    }
+    
+    guard some == nil else { 
+        return true
+    }
+}
+
+if xStatement, yStatement, let value = myValue, (x&amp;&amp;y), 
+
+
+enum PresentationStyle {
+    case modal
+    case fullScreen
+}
+
+var myPresentationStyle: PresentationStyle
+
+enum PresentationStyle: String {
+    case modal = "show_popup"
+    case fullScreen = "show_full"
+}
+
+enum PresentationStyle: CaseIterable {
+    case fullScreen
+    case overFullScreen
+    case overCurrentContext
+    ..
+    ...
+    
+}
+var myPresentationStyle: PresentationStyle
+var array: [X]
+for style in myPresentationStyle {
+    
+}
+enum Cards: Int {
+    case ace = 1
+    case two = 2
+    ..
+    ..
+    
+    func showCard(card: Card) 
+    ..
+    ..
+    print(card)
+}
+
+var myCards: Cards
+print(ace.rawValue + two.rawValue)
+
+let myAceCard = Cards(rawValue: 1)
+
+if statement {
+    //positive
+} else {
+    //negative
+}
+
+
+switch myCards.rawValue {
+case 1: 
+    //first
+    print("one")
+case 2:
+    //second
+    print("two")
+case 3:
+    //third
+    print("three")
+    default:
+        print("other")
+}
+
+switch myPresentationStyle {
+case modal:
+    print("arkadaki ekrani blurladin mi?")
+case fullScreen:
+    print("fullScreen oldu")
+    default: // ide sildirecek
+        print("some") 
+}
+
+switch myCards.rawValue {
+case 1, 3, 5, 7, 9: 
+    //first
+    print("tek sayi")
+case 2, 4, 6 , 8:
+    //second
+    print("cift")
+default:
+    print("other")
+}
+
+switch myCards.rawValue {
+case 1..&lt;10: 
+    print("rakam")
+default:
+    print("other")
+}
+
+let urlString = "musterihizmetleri.qnbfinansbank.com"
+
+switch statement {
+case case1:
+    break
+case case2:
+    break
+case let musteriHizmetleriUrl where urlString.hasSuffix("musteri")
+print("musteri hizmetleri urli")
+}
+for item in items {
+    switch statement {
+    case 1:
+        continue
+        default: break
+    }
+}
+
+var coordinate: (Double, Double)
+
+switch coordinate {
+case (0,0): // 0, 0
+    print("merkezde")
+case (let x, 0): // 3455, 0
+    print("x ekseni uzerinde")
+case (0, let y): // 0, 12
+    print("y ekseni uzerinde")
+case let (x,y): // 12, 334
+    print("koordinat duzleminde herhangi bir yerde")
+}
+
+
+var cow = Mamals()
+var cow2: Cow = cow as Cow
+
+struct MyStruct {
+    
+}
+
+class MyClass {
+    
+}
+
+struct Coordinate {
+    var x = 0
+    var y = 0
+}
+
+class Shape {
+    var coordinate = Coordinate()
+    var name: String()
+    var edgeCount: Int?
+    var cornerCount: Int
+    
+    init(cornerCount: Int) {
+        self.cornerCount = cornerCount
+    }
+}
+
+let coordinate = Coordinate(x: 12, y: 20)
+let shape = Shape()
+
+let xCoordinate = coordinate.x
+let shapeName = shape.name
+
+class myClass {
+    var name = "myName"
+}
+
+class Square: Shape {
+    var edge: Int
+    var adsafasd {
+        for i in 0..&lt;cornerCount {
+            edge += i
+        }
+    }
+}
+
+class Shape {
+    lazy var coordinate: Coordinate()
+    ..
+    ..
+    ..
+    print(coordinate.x)
+}
+
+var myShape = Shape()
+
+class Coordinate {
+    var x = 0
+    var y = 0
+    var z = 0
+    
+    let name = ""
+}
+
+var firstCoordinate = Coordinate()
+firstCoordinate.x = 12
+var secondCoordinate = firstCoordinate
+
+print(secondCoordinate.x)
+print(secondCoordinate.y)
+
+secondCoordinate.x != secondCoordinate.y // property esit degilse karsilastirmasi
+firstCoordinate !== secondCoordinate // class variable ve constantlari esit degilse karsilastirmasi
+
+if (rhd: Int, lhd: Int) {
+    return rhd == lhd
+}
+
+class Shape {
+    var name: String
+}
+
+class Square: Shape {
+    func printName(_ name: String) {
+        print(name)
+    }
+}
+
+Gizli =&gt; Acik // Access modifiers
+private // Bir A class'i private name property'sine ulasamaz. Square sinifi da ulasamaz
+internal // Bir A class'i internal name property'sine ulasamaz. Square sinifi ulasabilir.
+public // Bir A class'i name property'sine erisebilir. Square sinifi ulasamaz.
+open // Bir A class'i name property'sine erisebilir. Square sinifi da erisebilir.
+
+internal = protected
+
+fileprivate // ayni dosya icerisinde olan A class'i fileprivate name property'sine erisebilir. 
+
+Dosya 1
+--
+class Shape {
+    fileprivate var name: String
+}
+--
+    
+Dosya 2
+    --
+class Square: Shape {
+    func printName(_ name: String) {
+        print(name)
+    }
+}
+--
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 7932}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/My Playground.playgroundpage/main.swift</string>
+</dict>
+</plist>

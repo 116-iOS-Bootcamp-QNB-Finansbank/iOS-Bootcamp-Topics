@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>//syntax error 
+func show(balanace: Double) //show(balance: "1000")
+//runtime error
+let array = [1, 2, 3] // array[67]
+let salaries = ["Semih": 150000, "Ahmet": 20000] //salaries["Mustafa"]
+//logic error
+
+enum AccountError: Error {
+    case insufficientBalance(String) //yetersiz bakiye
+}
+
+class Account {
+    var balance: Double
+    
+    init(balance: Double) {
+        self.balance = balance
+    }
+    
+    func deposit(_ amount: Double) {
+        balance += amount
+    }
+    
+    func withdraw(_ amount: Double) throws { //nasil hata olusabilir
+        if balance &lt; amount { //100 liram var // 40000 lira harcamaya calisiyorum
+            throw AccountError.insufficientBalance("balance: \(balance), amount:\(amount)")
+        }
+        balance -= amount
+    }
+}
+
+let account = Account(balance: 100)
+
+do {
+    try account.withdraw(5000)
+} catch {
+    print(error)
+    LogManager.log(error) // sensitive data degilse cihaza kaydedebilir // sensitive ise kendi data center'iniza kaydolabilir // firebase logger 
+}
+
+//try try? try!
+struct MyType: Decodable {
+    let title: String
+    let identifier: String
+}
+
+guard let decodedData = try? JSONDecoder.decode([MyType].self, from: data) else {
+    //print(error)
+    return
+}
+///
+///
+
+struct Lemonade {
+    let water: String
+    let lemon: String
+}
+
+enum LemonadeMakerError: Error {
+    case lemonsAreRotten
+    case noWater
+}
+
+struct LemonadeMaker {
+    func prepare() -&gt; Lemonade? {
+        do {
+            let lemon = try prepareLemon()
+            let water = try prepareWater()
+            
+            return Lemonade(water: water, lemon: lemon)
+        } catch {
+            print(error)
+            return nil
+        }
+    }
+    
+    func prepareLemon() throws -&gt; String {
+        //collect lemon
+        throw LemonadeMakerError.lemonsAreRotten
+    }
+    
+    func prepareWater() throws -&gt; String {
+        //prepare
+        throw LemonadeMakerError.noWater
+    }
+}
+
+let decodedData = try! JSONDecoder.decode([MyType].self, from: data)
+
+print(decodedData) // decodedDataValue X crash
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 2044}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
