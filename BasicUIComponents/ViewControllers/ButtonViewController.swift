@@ -18,9 +18,12 @@ class ButtonViewController: UIViewController {
         // Do any additional setup after loading the view.
         setUpMyButton()
         showCount()
+        self.view.backgroundColor = .green
     }
     
     private var count: Int = 0
+    
+    var index: Int!
     
     @IBAction func myButtonTapped(_ sender: UIButton) {
         count += 1

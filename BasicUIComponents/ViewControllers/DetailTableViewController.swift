@@ -16,9 +16,20 @@ class DetailTableViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-//        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: customCellIdentifier) // sadece class olsaydi implementasyonu boyle olacakti
+//        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier:  mmmmmmnnb) // sadece class olsaydi implementasyonu boyle olacakti
+//        let searchResultController = UIViewController()
+//        searchResultController.view.backgroundColor = .yellow
+//        let searchController = UISearchController(searchResultsController: searchResultController)
+        let searchController = UISearchController()
+//        searchController.view.backgroundColor = .red
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = true
+        self.navigationItem.searchController = searchController
+        
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil),
                            forCellReuseIdentifier: "CustomTableViewCell") // eger olusturdugum custom cell ayni zamanda da xib dosyasi iceriyorsa bu sekilde bir implementasyon yapacagiz
+        filteredPeople = people
+        tableView.reloadData()
     }
 
     struct Person {
@@ -38,6 +49,8 @@ class DetailTableViewController: UIViewController {
                   Person(name: "Emre", lastname: "Yalcin", govermentNumber: 9),
                   Person(name: "Pelin", lastname: "Yazar", govermentNumber: 10),
                   Person(name: "Nejla", lastname: "Ozhan", govermentNumber: 11)]
+    
+    var filteredPeople: [Person] = []
     
 //    var personNames: [String] {
 //        people.map { (person) in person.name }
@@ -112,13 +125,13 @@ extension DetailTableViewController: UITableViewDelegate {
 
 extension DetailTableViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 1 //3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return people.count
+            return filteredPeople.count
         case 1:
             return firstChars.count
         case 2:
@@ -133,7 +146,7 @@ extension DetailTableViewController: UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath)
             cell.backgroundColor = UIColor.random
-            let person = people[indexPath.row]
+            let person = filteredPeople[indexPath.row]
             cell.textLabel?.text = person.name
             cell.detailTextLabel?.text = person.lastname
             return cell
@@ -152,4 +165,30 @@ extension DetailTableViewController: UITableViewDataSource {
             return tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath)
         }
     }
+}
+
+//extension DetailTableViewController: UISearchBarDelegate {
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        filteredPeople = searchText.isEmpty ? people : people.filter { (person) in
+//            return person.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+//        }
+//        tableView.reloadData()
+//    }
+//
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//
+//    }
+//}
+
+extension DetailTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else { return }
+        filteredPeople = searchText.isEmpty ? people : people.filter { (person) in
+            return person.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        }
+        
+        tableView.reloadData()
+    }
+    
+    
 }

@@ -14,7 +14,7 @@ class NavigationExampleViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        self.title = "Example"
+//        self.title = "Example"
         let rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: nil)
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
     }

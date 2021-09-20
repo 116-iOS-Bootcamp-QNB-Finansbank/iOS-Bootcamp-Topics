@@ -17,7 +17,31 @@ class HomeTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        //self.performSegue(withIdentifier: "sendUrlString", sender: self)
+        
+        //User defaults
+//        let hasCameBefore: Bool = UserDefaults.standard.bool(forKey: UserDefaultKeys.welcomeLabel.rawValue)
+//        title = hasCameBefore ? "Welcome Back!" : "Welcome!"
+//
+//        UserDefaults.standard.setValue(true, forKey: UserDefaultKeys.welcomeLabel.rawValue)
+//        UserDefaults.standard.synchronize()
+        
+        title = MyUserDefaults.instance.hasCameBefore ? "Welcome Back!" : "Welcome!"
+        
+        let component = MyComponent()
+        component.indice = 354
+        //component -> data
+        // encode islemi yapmaliyiz
+        
+        guard let encodedData = try? JSONEncoder().encode(component) else { return }
+        UserDefaults.standard.setValue(encodedData, forKey: "MyComponent")
+        UserDefaults.standard.synchronize()
+        
+        let shouldDecodeData = UserDefaults.standard.data(forKey: "MyComponent")
+        guard let decodedData = try? JSONDecoder().decode(MyComponent.self, from: shouldDecodeData!) else { return }
     }
+     
 
     // MARK: - Table view data source
 
@@ -76,14 +100,17 @@ class HomeTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "sendUrlString" {
+            if let webViewController = segue.destination as? WebViewContainerViewController {
+                webViewController.urlString = "https://www.google.com"
+            }
+        }
     }
-    */
+    
 
 }
